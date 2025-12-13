@@ -37,6 +37,13 @@
             --timeline-line: #444;
         }
 
+        /* Mencegah seleksi teks agar tidak bisa di-copy */
+        body {
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -138,7 +145,7 @@
             perspective: 1000px;
         }
 
-        /* --- PHOTO FRAME (Original Style) --- */
+        /* --- PHOTO FRAME --- */
         .photo-frame {
             width: 350px;
             height: 450px;
@@ -147,6 +154,8 @@
             transform: rotateY(-15deg) rotateX(5deg);
             transition: transform 0.5s ease;
             cursor: pointer;
+            border-radius: 20px;
+            background: var(--card-bg); 
         }
 
         .photo-frame img {
@@ -156,6 +165,9 @@
             border-radius: 20px;
             border: 5px solid var(--frame-border);
             box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2; 
+            transition: border-color 0.3s;
         }
 
         .photo-frame:hover {
@@ -246,10 +258,10 @@
             transition: width 1s ease-in-out;
         }
 
-        /* --- EXPERIENCE SECTION (Akun Sosmed) --- */
+        /* --- EXPERIENCE SECTION --- */
         .experience {
             padding: 60px 10%;
-            background: rgba(0,0,0,0.02); /* Sedikit beda background biar selang seling */
+            background: rgba(0,0,0,0.02);
             text-align: center;
         }
 
@@ -293,7 +305,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%; /* Lingkaran */
+            border-radius: 50%;
             border: 3px solid var(--accent-color);
         }
 
@@ -340,7 +352,7 @@
         /* --- PORTFOLIO SECTION --- */
         .portfolio {
             padding: 80px 10%;
-            background: var(--bg-color); /* Reset background */
+            background: var(--bg-color);
         }
         
         .portfolio h2 {
@@ -541,7 +553,6 @@
             .masonry-container { column-count: 1; }
             .skills-grid { grid-template-columns: 1fr; }
             .gallery { grid-template-columns: 1fr; }
-            .timeline-content { padding: 15px; }
             .instagram-container iframe { height: 350px; }
             .lb-prev, .lb-next { width: 40px; height: 40px; font-size: 24px; }
             .lb-prev { left: 10px; } .lb-next { right: 10px; }
@@ -549,9 +560,7 @@
 
     </style>
 </head>
-<body>
-
-    <nav>
+<body oncontextmenu="return false"> <nav>
         <div class="logo">My Portofolio</div>
         <div class="nav-controls">
             <button id="lang-btn" onclick="toggleLanguage()">EN</button>
@@ -724,10 +733,10 @@
             
             <div class="exp-card">
                 <div class="exp-img">
-                    <img src="img/logoSMK.jpg" alt="SMK Kasatrian Solo">
+                    <img src="img/logoSMK.jpg" alt="SMK Kasatrian">
                 </div>
                 <div class="exp-content">
-                    <h3>SMK Kasatrian Solo</h3>
+                    <h3>SMK Kasatrian</h3>
                     <div class="exp-buttons">
                         <a href="https://instagram.com/smk_kasatrian_solo" target="_blank" class="btn-social"><i class="fab fa-instagram"></i></a>
                         <a href="https://tiktok.com/@smk_kasatrian_solo" target="_blank" class="btn-social"><i class="fab fa-tiktok"></i></a>
@@ -767,9 +776,10 @@
                     <img src="img/LogoARCHTRA.png" alt="Archtra">
                 </div>
                 <div class="exp-content">
-                    <h3>ARCHTRA</h3>
+                    <h3>Archtra</h3>
                     <div class="exp-buttons">
                         <a href="https://www.instagram.com/arch_kasatrian/" target="_blank" class="btn-social"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@archtra_kasatrian" target="_blank" class="btn-social"><i class="fab fa-tiktok"></i></a>
                         <a href="https://www.youtube.com/@archtra_kasatrian" target="_blank" class="btn-social"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
@@ -783,14 +793,14 @@
         <div class="gallery">
             
             <div class="gallery-item" onclick="openModal('foto')">
-                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=500&q=60" alt="Foto">
+                <img src="img/Picture (1).jpg" alt="Foto">
                 <div class="gallery-overlay">
                     <h3 id="gal-txt-foto">Foto</h3>
                 </div>
             </div>
 
             <div class="gallery-item" onclick="openModal('web')">
-                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=500&q=60" alt="Website">
+                <img src="img/website1.jpg" alt="Website">
                 <div class="gallery-overlay">
                     <h3 id="gal-txt-web">Website</h3>
                 </div>
@@ -834,12 +844,47 @@
             <a href="https://www.instagram.com/vinnn8074/" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://www.tiktok.com/@vizz7775" target="_blank"><i class="fab fa-tiktok"></i></a>
             <a href="https://www.youtube.com/@ArkS77" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/SkyZP" target="_blank"><i class="fab fa-github"></i></a>
         </div>
         <p>&copy; 2025 Arvin. All Rights Reserved.</p>
     </footer>
 
     <script>
+        // --- SCRIPT ANTI INSPECT ELEMENT ---
+        // Mencegah Klik Kanan
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Mencegah Shortcut Keyboard (F12, Ctrl+U, Ctrl+Shift+I, dll)
+        document.onkeydown = function(e) {
+            // F12
+            if (e.keyCode == 123) {
+                return false;
+            }
+            // Ctrl+Shift+I (Inspect)
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            // Ctrl+Shift+J (Console)
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            // Ctrl+Shift+C (Inspect Element)
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+            // Ctrl+U (View Source)
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+            // Ctrl+S (Save Page)
+            if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) {
+                return false;
+            }
+        };
+
+        // --- DATA PORTFOLIO ---
         const portfolioData = {
             foto: [
                 "img/Picture (1).jpg", "img/Picture (2).jpg", "img/Picture (3).jpg", 
@@ -853,13 +898,13 @@
                     title: "Website Pramuka SMK Kasatrian", 
                     desc: "Website Profile Pramuka", 
                     link: "https://www.pramuska.site/", 
-                    img: "img/Website1.jpg" 
+                    img: "img/website1.jpg" 
                 },
                 { 
                     title: "Website Dokumentasi Sekolah", 
                     desc: "Website Dokumentasi", 
                     link: "https://sites.google.com/view/kasatrianarchive", 
-                    img: "img/Website2.jpg" 
+                    img: "img/website2.jpg" 
                 }
             ],
             editing: {
@@ -1245,5 +1290,4 @@
         }
     </script>
 </body>
-
 </html>
