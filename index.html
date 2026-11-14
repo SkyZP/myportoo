@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arvin — Digital Creator</title>
+<title>My Porto</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-/* ================= VARIABLES ================= */
 :root{
   --bg:#f5f7fb; --bg-soft:#eef1f8; --text:#141622; --muted:#5d6478; --card:#ffffff;
   --border:rgba(15,25,60,.08); --accent:#007bff; --accent2:#8e2de2;
@@ -23,7 +22,6 @@ body.dark{
   --glow:rgba(0,210,255,.35); --nav-bg:rgba(12,15,24,.72);
 }
 
-/* ================= BASE ================= */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -33,7 +31,7 @@ body{
   -webkit-user-select:none;user-select:none;
 }
 img{display:block;max-width:100%}
-a{color:inherit}
+a{color:inherit;text-decoration:none}
 ::selection{background:var(--accent);color:#fff}
 
 ::-webkit-scrollbar{width:11px}
@@ -42,23 +40,19 @@ a{color:inherit}
   background-color:var(--accent);border-radius:20px;border:3px solid transparent;
   background-clip:content-box;opacity:.7;
 }
-::-webkit-scrollbar-thumb:hover{background-color:var(--accent2)}
 
-/* ================= KEYFRAMES ================= */
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
 @keyframes blobMove{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.12)}66%{transform:translate(-30px,25px) scale(.94)}}
 @keyframes shine{to{background-position:200% center}}
-@keyframes spinSlow{to{transform:rotate(360deg)}}
 @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.8)}}
-@keyframes shimmer{0%{background-position:-500px 0}100%{background-position:500px 0}}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes caret{50%{opacity:0}}
 @keyframes popIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
 @keyframes ripple{to{transform:scale(3.2);opacity:0}}
 @keyframes slideUp{from{opacity:0;transform:translateY(45px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes shimmer{0%{background-position:-500px 0}100%{background-position:500px 0}}
 
-/* ================= PRELOADER ================= */
 #preloader{
   position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;
   flex-direction:column;align-items:center;justify-content:center;gap:22px;
@@ -74,11 +68,9 @@ a{color:inherit}
 .pl-bar{width:170px;height:4px;border-radius:99px;background:var(--border);overflow:hidden}
 .pl-bar span{display:block;height:100%;width:40%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));animation:marquee 1.1s ease-in-out infinite alternate}
 
-/* ================= SCROLL PROGRESS ================= */
-.scroll-progress{position:fixed;top:0;left:0;height:3px;width:100%;z-index:1500;background:transparent;pointer-events:none}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:100%;z-index:1500;pointer-events:none}
 .scroll-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 12px var(--glow);transition:width .1s linear}
 
-/* ================= CURSOR GLOW ================= */
 .cursor-glow{
   position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:0;
   background:radial-gradient(circle,var(--glow),transparent 62%);opacity:.35;
@@ -87,7 +79,6 @@ a{color:inherit}
 body.dark .cursor-glow{opacity:.22}
 @media (hover:none){.cursor-glow{display:none}}
 
-/* ================= NAV ================= */
 nav{
   position:sticky;top:0;z-index:900;display:flex;align-items:center;justify-content:space-between;
   gap:20px;padding:18px 6%;background:var(--nav-bg);backdrop-filter:blur(18px);
@@ -105,7 +96,6 @@ nav.shrink{padding:11px 6%;box-shadow:var(--shadow-sm)}
   border-radius:99px;position:relative;transition:.3s;
 }
 .nav-links a:hover,.nav-links a.active{color:var(--accent);background:rgba(0,123,255,.09)}
-body.dark .nav-links a:hover,body.dark .nav-links a.active{background:rgba(0,210,255,.1)}
 .nav-controls{display:flex;gap:8px}
 .nav-controls button{
   background:transparent;border:1.6px solid var(--border);color:var(--text);
@@ -114,7 +104,6 @@ body.dark .nav-links a:hover,body.dark .nav-links a.active{background:rgba(0,210
 }
 .nav-controls button:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 0 16px var(--glow);transform:translateY(-2px)}
 
-/* ================= HERO ================= */
 .hero{position:relative;display:flex;align-items:center;justify-content:space-between;gap:50px;
   min-height:92vh;padding:60px 6%;flex-wrap:wrap;overflow:hidden}
 .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;z-index:0;pointer-events:none}
@@ -122,12 +111,16 @@ body.dark .nav-links a:hover,body.dark .nav-links a.active{background:rgba(0,210
 .blob.b2{width:380px;height:380px;background:var(--accent2);bottom:-120px;right:-60px;animation:blobMove 20s ease-in-out infinite reverse}
 body.dark .blob{opacity:.32}
 .hero-text{flex:1 1 420px;position:relative;z-index:2;min-width:280px}
+
 .hero-badge{
   display:inline-flex;align-items:center;gap:9px;padding:7px 16px;border-radius:99px;
   background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow-sm);
   font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:22px;
+  transition:all .3s;
 }
+.hero-badge.hidden{display:none}
 .hero-badge i{color:#22c55e;font-size:.6rem;animation:pulseDot 1.8s infinite}
+
 .hero-text h1{font-size:clamp(2.3rem,5vw,4rem);line-height:1.1;font-weight:800;letter-spacing:-1.5px;margin-bottom:14px}
 .hero-text h1 .grad{
   background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent));
@@ -141,7 +134,7 @@ body.dark .blob{opacity:.32}
 .btn{
   position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;
   padding:14px 30px;border-radius:99px;font-weight:600;font-size:.92rem;text-decoration:none;
-  cursor:pointer;border:none;font-family:inherit;transition:transform .3s,box-shadow .3s,background .3s;
+  cursor:pointer;border:none;font-family:inherit;transition:transform .3s,box-shadow .3s;
 }
 .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 12px 30px var(--glow)}
 .btn-primary:hover{transform:translateY(-4px);box-shadow:0 18px 40px var(--glow)}
@@ -149,13 +142,11 @@ body.dark .blob{opacity:.32}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-4px)}
 .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.5);transform:scale(0);animation:ripple .6s ease-out;pointer-events:none}
 
-/* stats */
 .stats{display:flex;gap:34px;margin-top:44px;flex-wrap:wrap}
 .stat b{display:block;font-size:1.85rem;font-weight:800;font-family:'Space Grotesk',sans-serif;
   background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .stat span{font-size:.76rem;color:var(--muted);font-weight:500;letter-spacing:.3px}
 
-/* photo */
 .hero-img{flex:1 1 340px;display:flex;justify-content:center;align-items:center;position:relative;z-index:2;min-width:260px}
 .photo-frame{
   width:330px;height:430px;position:relative;border-radius:26px;background:var(--card);
@@ -179,7 +170,6 @@ body.dark .blob{opacity:.32}
 .chip-1{top:22px;left:-14px;animation:floatY 5s ease-in-out infinite}
 .chip-2{bottom:44px;right:-18px;animation:floatY 5.5s ease-in-out infinite reverse}
 
-/* ================= MARQUEE ================= */
 .marquee{
   overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
   background:var(--card);padding:16px 0;position:relative;z-index:2;
@@ -194,7 +184,6 @@ body.dark .blob{opacity:.32}
 }
 .marquee-track span::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:.6}
 
-/* ================= SECTIONS ================= */
 section{position:relative;padding:90px 6%;z-index:2}
 .sec-head{text-align:center;margin-bottom:56px}
 .sec-tag{
@@ -205,11 +194,9 @@ body.dark .sec-tag{background:rgba(0,210,255,.1)}
 .sec-head h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-1px}
 .sec-head p{color:var(--muted);font-size:.92rem;margin-top:10px}
 
-/* reveal */
 [data-reveal]{opacity:0;transform:translateY(38px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
 [data-reveal].in{opacity:1;transform:none}
 
-/* ================= SKILLS ================= */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
 .skill-card{
   position:relative;overflow:hidden;background:var(--card);border:1px solid var(--border);
@@ -238,11 +225,9 @@ body.dark .sec-tag{background:rgba(0,210,255,.1)}
 .tool-item{margin-bottom:14px}
 .tool-item:last-child{margin-bottom:0}
 .tool-info{display:flex;justify-content:space-between;font-size:.76rem;font-weight:600;color:#fff;margin-bottom:6px}
-.tool-info .st{font-weight:400;font-style:italic;color:#9fb0c8;font-size:.68rem}
 .bar{width:100%;height:7px;border-radius:99px;background:rgba(255,255,255,.16);overflow:hidden}
 .bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 1.5s cubic-bezier(.16,1,.3,1)}
 
-/* ================= EXPERIENCE ================= */
 .exp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
 .exp-card{
   display:flex;align-items:center;gap:18px;padding:20px;background:var(--card);
@@ -262,7 +247,6 @@ body.dark .sec-tag{background:rgba(0,210,255,.1)}
 }
 .btn-social:hover{background:var(--accent);color:#fff;transform:translateY(-4px) scale(1.08)}
 
-/* ================= CERT ================= */
 .cert-wrap{
   max-width:760px;margin:0 auto;text-align:center;padding:56px 30px;border-radius:28px;
   background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow);position:relative;overflow:hidden;
@@ -285,7 +269,6 @@ body.dark .sec-tag{background:rgba(0,210,255,.1)}
 }
 .btn-liquid:hover::after{left:130%}
 
-/* ================= PORTFOLIO ================= */
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
 .gallery-item{
   position:relative;height:250px;border-radius:22px;overflow:hidden;cursor:pointer;
@@ -308,7 +291,6 @@ body.dark .sec-tag{background:rgba(0,210,255,.1)}
 }
 .gallery-item:hover .g-overlay h3,.gallery-item:hover .g-overlay i{transform:translateY(0)}
 
-/* ================= MODAL ================= */
 .modal{
   display:none;position:fixed;inset:0;z-index:1000;padding:20px;
   background:rgba(10,12,20,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
@@ -330,7 +312,6 @@ body.dark .sec-tag{background:rgba(0,210,255,.1)}
 .modal-title{text-align:center;font-size:1.45rem;font-weight:800;margin-bottom:26px;letter-spacing:-.5px}
 .modal-title span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
-/* masonry */
 .masonry{column-count:3;column-gap:14px;padding:4px}
 .masonry-item{
   break-inside:avoid;margin-bottom:14px;border-radius:14px;overflow:hidden;cursor:zoom-in;
@@ -341,7 +322,6 @@ body.dark .sec-tag{background:rgba(0,210,255,.1)}
 .masonry-item img{width:100%;border-radius:14px;transition:.35s}
 .masonry-item:hover img{filter:brightness(.9)}
 
-/* ================= WEB CARDS / LIVE THUMB ================= */
 .web-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
 .web-card{
   background:var(--bg-soft);border:1px solid var(--border);border-radius:20px;overflow:hidden;
@@ -362,7 +342,6 @@ body.dark .sec-tag{background:rgba(0,210,255,.1)}
 }
 .web-thumb.loaded{opacity:1}
 .web-card:hover .web-thumb{transform:scale(1.04)}
-.thumb-wrap iframe{width:100%;height:100%;border:0;background:#fff}
 .live-badge{
   position:absolute;top:10px;left:10px;display:flex;align-items:center;gap:6px;
   padding:5px 11px;border-radius:99px;font-size:.64rem;font-weight:800;letter-spacing:1px;
@@ -375,10 +354,6 @@ body.dark .sec-tag{background:rgba(0,210,255,.1)}
   display:flex;align-items:center;justify-content:center;transition:.3s;backdrop-filter:blur(8px);
 }
 .thumb-refresh:hover{background:var(--accent);transform:rotate(180deg)}
-.thumb-note{
-  position:absolute;bottom:8px;right:10px;font-size:.6rem;color:#fff;z-index:3;
-  background:rgba(10,14,22,.6);padding:3px 9px;border-radius:99px;backdrop-filter:blur(8px);
-}
 .web-info{padding:20px;text-align:center}
 .web-info h4{font-size:.98rem;font-weight:700;margin-bottom:6px}
 .web-info p{font-size:.82rem;color:var(--muted);margin-bottom:14px}
@@ -389,7 +364,6 @@ body.dark .sec-tag{background:rgba(0,210,255,.1)}
 }
 .visit-btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px var(--glow)}
 
-/* ================= VIDEO TABS ================= */
 .video-tabs{display:flex;justify-content:center;gap:12px;margin-bottom:26px;flex-wrap:wrap}
 .tab-btn{
   display:flex;align-items:center;gap:9px;padding:10px 24px;border-radius:99px;
@@ -412,7 +386,6 @@ body.dark .sec-tag{background:rgba(0,210,255,.1)}
 .vid-card .visit-btn{margin-top:14px}
 .yt-btn{background:#ff0000;box-shadow:0 8px 22px rgba(255,0,0,.3)}
 
-/* ================= LIGHTBOX ================= */
 .lightbox{
   display:none;position:fixed;inset:0;z-index:2000;background:rgba(5,7,12,.96);
   backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
@@ -423,7 +396,6 @@ body.dark .sec-tag{background:rgba(0,210,255,.1)}
 .lightbox-img{
   max-width:90vw;max-height:82vh;border-radius:12px;box-shadow:0 0 70px rgba(0,0,0,.7);
   transform:scale(.85);transition:transform .4s cubic-bezier(.175,.885,.32,1.275);
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
 }
 .lightbox.active .lightbox-img{transform:scale(1)}
 .lb-close{position:absolute;top:18px;right:28px;color:#fff;font-size:2.2rem;cursor:pointer;z-index:2010;transition:.3s;line-height:1}
@@ -437,7 +409,6 @@ body.dark .sec-tag{background:rgba(0,210,255,.1)}
 .lb-prev{left:22px}.lb-next{right:22px}
 .lb-count{position:absolute;bottom:22px;color:#cfd6e6;font-size:.8rem;letter-spacing:2px}
 
-/* ================= FAB ================= */
 .fab{
   position:fixed;bottom:26px;right:26px;width:50px;height:50px;border-radius:50%;border:none;
   background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;cursor:pointer;
@@ -448,7 +419,6 @@ body.dark .sec-tag{background:rgba(0,210,255,.1)}
 .fab.show{opacity:1;visibility:visible;transform:none}
 .fab:hover{transform:translateY(-5px) scale(1.06)}
 
-/* ================= FOOTER ================= */
 footer{
   padding:52px 6% 34px;text-align:center;background:var(--card);
   border-top:1px solid var(--border);position:relative;z-index:2;
@@ -462,7 +432,6 @@ footer{
 footer p{font-size:.8rem;color:var(--muted)}
 footer p b{color:var(--text)}
 
-/* ================= RESPONSIVE ================= */
 @media(max-width:1024px){
   .masonry{column-count:2}
   .nav-links{display:none}
@@ -498,7 +467,6 @@ footer p b{color:var(--text)}
 </head>
 <body oncontextmenu="return false">
 
-<!-- PRELOADER -->
 <div id="preloader">
   <div class="pl-logo">ARVIN</div>
   <div class="pl-bar"><span></span></div>
@@ -507,7 +475,6 @@ footer p b{color:var(--text)}
 <div class="cursor-glow" id="cursorGlow"></div>
 <div class="scroll-progress"><span id="scrollBar"></span></div>
 
-<!-- NAV -->
 <nav id="navbar">
   <div class="logo"><span class="dot"></span><b>Arvin</b><span class="nav-year">©<span class="year"></span></span></div>
   <div class="nav-links">
@@ -523,20 +490,24 @@ footer p b{color:var(--text)}
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="hero">
   <div class="blob b1"></div>
   <div class="blob b2"></div>
 
   <div class="hero-text">
-    <div class="hero-badge"><i class="fas fa-circle"></i> <span data-i18n="badge">Open for collaboration</span></div>
+    <!-- TOGGLE BADGE: Hapus class "hidden" untuk tampilkan, tambah untuk sembunyikan -->
+    <div class="hero-badge hidden" id="badgeToggle">
+      <i class="fas fa-circle"></i> 
+      <span data-i18n="badge">Open for collaboration</span>
+    </div>
+    
     <h1><span data-i18n="hero_greet">Halo, saya</span><br><span class="grad">Arvin</span></h1>
     <div class="typed-wrap"><span id="typed"></span></div>
     <p class="lead" data-i18n="hero_desc">Kreator digital yang fokus pada fotografi, videografi, dan pengembangan web — mengubah ide jadi visual yang hidup.</p>
 
     <div class="hero-actions">
       <a href="#portfolio" class="btn btn-primary"><i class="fas fa-images"></i> <span data-i18n="btn_work">Lihat Karya</span></a>
-      <a href="#contact" class="btn btn-ghost"><i class="fas fa-paper-plane"></i> <span data-i18n="btn_contact">Hubungi Saya</span></a>
+      <a href="#contact" onclick="scrollToContact(event)" class="btn btn-ghost"><i class="fas fa-paper-plane"></i> <span data-i18n="btn_contact">Hubungi Saya</span></a>
     </div>
 
     <div class="stats">
@@ -556,7 +527,6 @@ footer p b{color:var(--text)}
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee">
   <div class="marquee-track">
     <span>FOTOGRAFI</span><span>VIDEOGRAFI</span><span>WEB DESIGN</span><span>VIDEO EDITING</span><span>CONTENT CREATOR</span><span>PHOTO EDITING</span>
@@ -564,7 +534,6 @@ footer p b{color:var(--text)}
   </div>
 </div>
 
-<!-- SKILLS -->
 <section class="skills" id="skills">
   <div class="sec-head" data-reveal>
     <div class="sec-tag" data-i18n="tag_skills">Keahlian</div>
@@ -659,7 +628,6 @@ footer p b{color:var(--text)}
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section class="experience" id="experience">
   <div class="sec-head" data-reveal>
     <div class="sec-tag" data-i18n="tag_exp">Pengalaman</div>
@@ -672,9 +640,9 @@ footer p b{color:var(--text)}
       <div class="exp-content">
         <h3>SMK Kasatrian</h3>
         <div class="exp-buttons">
-          <a href="https://instagram.com/smk_kasatrian_solo" target="_blank" class="btn-social"><i class="fab fa-instagram"></i></a>
-          <a href="https://tiktok.com/@smk_kasatrian_solo" target="_blank" class="btn-social"><i class="fab fa-tiktok"></i></a>
-          <a href="https://youtube.com/@smkkasatrian" target="_blank" class="btn-social"><i class="fab fa-youtube"></i></a>
+          <a href="https://instagram.com/smk_kasatrian_solo" target="_blank" class="btn-social" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://tiktok.com/@smk_kasatrian_solo" target="_blank" class="btn-social" title="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://youtube.com/@smkkasatrian" target="_blank" class="btn-social" title="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
     </div>
@@ -684,9 +652,9 @@ footer p b{color:var(--text)}
       <div class="exp-content">
         <h3>Pramuska</h3>
         <div class="exp-buttons">
-          <a href="https://www.instagram.com/pramuska_kasatrian/" target="_blank" class="btn-social"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@pramuskaa" target="_blank" class="btn-social"><i class="fab fa-tiktok"></i></a>
-          <a href="https://www.youtube.com/@pramuss" target="_blank" class="btn-social"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.instagram.com/pramuska_kasatrian/" target="_blank" class="btn-social" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@pramuskaa" target="_blank" class="btn-social" title="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.youtube.com/@pramuss" target="_blank" class="btn-social" title="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
     </div>
@@ -696,7 +664,7 @@ footer p b{color:var(--text)}
       <div class="exp-content">
         <h3>OSIS SMK Kasatrian Solo</h3>
         <div class="exp-buttons">
-          <a href="https://www.instagram.com/osaskagallery/" target="_blank" class="btn-social"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/osaskagallery/" target="_blank" class="btn-social" title="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
     </div>
@@ -706,16 +674,15 @@ footer p b{color:var(--text)}
       <div class="exp-content">
         <h3>Archtra</h3>
         <div class="exp-buttons">
-          <a href="https://www.instagram.com/arch_kasatrian/" target="_blank" class="btn-social"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@archtra_kasatrian" target="_blank" class="btn-social"><i class="fab fa-tiktok"></i></a>
-          <a href="https://www.youtube.com/@archtra_kasatrian" target="_blank" class="btn-social"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.instagram.com/arch_kasatrian/" target="_blank" class="btn-social" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@archtra_kasatrian" target="_blank" class="btn-social" title="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.youtube.com/@archtra_kasatrian" target="_blank" class="btn-social" title="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATES -->
 <section class="certificates" id="certificates">
   <div class="sec-head" data-reveal>
     <div class="sec-tag" data-i18n="tag_cert">Sertifikat</div>
@@ -727,7 +694,6 @@ footer p b{color:var(--text)}
   </div>
 </section>
 
-<!-- PORTFOLIO -->
 <section class="portfolio" id="portfolio">
   <div class="sec-head" data-reveal>
     <div class="sec-tag" data-i18n="tag_work">Portofolio</div>
@@ -751,7 +717,6 @@ footer p b{color:var(--text)}
   </div>
 </section>
 
-<!-- MODAL -->
 <div id="portfolioModal" class="modal">
   <div class="modal-content">
     <div class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i></div>
@@ -760,36 +725,29 @@ footer p b{color:var(--text)}
   </div>
 </div>
 
-<!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox">
   <span class="lb-close" onclick="closeLightbox()">&times;</span>
   <div class="lb-nav lb-prev" onclick="moveLightbox(-1)"><i class="fas fa-chevron-left"></i></div>
   <div class="lb-nav lb-next" onclick="moveLightbox(1)"><i class="fas fa-chevron-right"></i></div>
-  <img id="lightbox-img" class="lightbox-img" src="" alt="Preview">
+  <img id="lightbox-img" src="" class="lightbox-img" alt="Preview">
   <div class="lb-count" id="lb-count"></div>
 </div>
 
 <button class="fab" id="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
-<!-- FOOTER -->
 <footer id="contact">
   <div class="social-icons">
-    <a href="https://www.instagram.com/vinnn8074/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@vizz7775" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://www.youtube.com/@ArkS77" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.instagram.com/vinnn8074/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@vizz7775" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.youtube.com/@ArkS77" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
   </div>
-  <p>&copy; <span class="year"></span> <b>Arvin</b>. <span data-i18n="rights">All Rights Reserved.</span></p>
+  <p><b>My Portofolio</b></p>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 <script>
-/* ============================================================
-   1. TAHUN OTOMATIS (header + footer)
-   ============================================================ */
 document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
 
-/* ============================================================
-   2. DATA
-   ============================================================ */
 const portfolioData = {
   foto: [
     "img/Picture (1).jpg","img/Picture (2).jpg","img/Picture (3).jpg","img/Picture (4).jpg",
@@ -798,23 +756,10 @@ const portfolioData = {
     "img/Picture (13).jpg","img/Picture (14).jpg","img/Picture (15).jpg"
   ],
   sertifikat: ["img/sertif1.png","img/sertif2.png"],
-
-  // --- WEBSITE: thumbnail-nya LIVE, ambil screenshot otomatis ---
   web: [
-    {
-      title: "Website Pramuka SMK Kasatrian",
-      desc: "Website profile Pramuka",
-      link: "https://www.pramuska.site/",
-      fallback: "img/website1.jpg"
-    },
-    {
-      title: "Website Dokumentasi Sekolah",
-      desc: "Arsip dokumentasi sekolah",
-      link: "https://sites.google.com/view/kasatrianarchive",
-      fallback: "img/website2.jpg"
-    }
+    { title: "Website Pramuka SMK Kasatrian", desc: "Website profile Pramuka", link: "https://www.pramuska.site/", fallback: "img/website1.jpg" },
+    { title: "Website Dokumentasi Sekolah", desc: "Arsip dokumentasi sekolah", link: "https://sites.google.com/view/kasatrianarchive", fallback: "img/website2.jpg" }
   ],
-
   editing: {
     instagram: [
       "https://www.instagram.com/reel/DQbyS2_CV-k/","https://www.instagram.com/reel/DP_b24MgsCj/",
@@ -860,50 +805,22 @@ const portfolioData = {
   }
 };
 
-/* ============================================================
-   3. LIVE THUMBNAIL WEBSITE (auto-update, tanpa screenshot manual)
-   ============================================================ */
-// 'screenshot' = screenshot otomatis (paling aman, hampir semua situs bisa)
-// 'iframe'     = embed situs langsung (paling realtime, tapi situs yang blokir embed akan kosong)
 const LIVE_MODE = 'screenshot';
+function hourKey(){ const d = new Date(); return `${d.getFullYear()}${d.getMonth()+1}${d.getDate()}${d.getHours()}`; }
+function mshots(url, extra){ const sep = url.includes('?') ? '&' : '?'; const target = url + sep + 'v=' + hourKey() + (extra || ''); return 'https://s0.wp.com/mshots/v1/' + encodeURIComponent(target) + '?w=1200&h=675'; }
+function thumio(url){ return 'https://image.thum.io/get/width/1200/crop/675/noanimate/maxAge/1/' + url; }
 
-function hourKey(){
-  const d = new Date();
-  return `${d.getFullYear()}${d.getMonth()+1}${d.getDate()}${d.getHours()}`;
-}
-// WordPress mShots: bikin screenshot baru otomatis, cache per jam -> UI baru ikut ke-update
-function mshots(url, extra){
-  const sep = url.includes('?') ? '&' : '?';
-  const target = url + sep + 'v=' + hourKey() + (extra || '');
-  return 'https://s0.wp.com/mshots/v1/' + encodeURIComponent(target) + '?w=1200&h=675';
-}
-// Cadangan kalau mShots lambat/gagal
-function thumio(url){
-  return 'https://image.thum.io/get/width/1200/crop/675/noanimate/maxAge/1/' + url;
-}
+let slideIndex = 0, certMode = false;
+const $ = (s, c = document) => c.querySelector(s);
+const $$ = (s, c = document) => [...c.querySelectorAll(s)];
 
-function webCardHTML(item, i){
-  const thumb = LIVE_MODE === 'iframe'
-    ? `<iframe src="${item.link}" loading="lazy" referrerpolicy="no-referrer"></iframe>`
-    : `<div class="thumb-skel"></div>
-       <img class="web-thumb" alt="${item.title}"
-            data-live="${mshots(item.link)}"
-            data-fallback="${thumio(item.link)}"
-            data-local="${item.fallback || ''}">
-       <span class="live-badge"><i class="fas fa-circle"></i> LIVE</span>
-       <button class="thumb-refresh" title="Muat ulang pratinjau"><i class="fas fa-rotate"></i></button>
-       <span class="thumb-note">auto-update</span>`;
-
-  return `<div class="web-card">
-      <div class="thumb-wrap">${thumb}</div>
-      <div class="web-info">
-        <h4>${item.title}</h4>
-        <p>${item.desc}</p>
-        <a href="${item.link}" target="_blank" class="visit-btn">
-          <span data-t="visit">Kunjungi Website</span> <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>`;
+function webCardHTML(item){ 
+  const thumb = `<div class="thumb-skel"></div>
+    <img class="web-thumb" alt="${item.title}" data-live="${mshots(item.link)}" data-fallback="${thumio(item.link)}" data-local="${item.fallback}">
+    <span class="live-badge"><i class="fas fa-circle"></i> LIVE</span>
+    <button class="thumb-refresh" title="Muat ulang"><i class="fas fa-rotate"></i></button>
+    <span class="thumb-note">auto-update</span>`;
+  return `<div class="web-card"><div class="thumb-wrap">${thumb}</div><div class="web-info"><h4>${item.title}</h4><p>${item.desc}</p><a href="${item.link}" target="_blank" class="visit-btn"><span data-t="visit">Kunjungi Website</span> <i class="fas fa-external-link-alt"></i></a></div></div>`;
 }
 
 function initLiveThumbs(root){
@@ -911,38 +828,24 @@ function initLiveThumbs(root){
     const wrap = img.closest('.thumb-wrap');
     const chain = [img.dataset.live, img.dataset.fallback, img.dataset.local].filter(Boolean);
     let i = 0;
-
     const loadNext = () => {
       if (i >= chain.length) { wrap.classList.add('ready'); return; }
       img.src = chain[i++];
     };
-
-    img.addEventListener('load', () => {
-      img.classList.add('loaded');
-      wrap.classList.add('ready');
-    });
+    img.addEventListener('load', () => { img.classList.add('loaded'); wrap.classList.add('ready'); });
     img.addEventListener('error', loadNext);
     loadNext();
-
     const btn = wrap.querySelector('.thumb-refresh');
     if (btn) btn.addEventListener('click', e => {
       e.stopPropagation();
       img.classList.remove('loaded');
       wrap.classList.remove('ready');
       i = 0;
-      // paksa ambil screenshot baru (cache-buster)
       img.dataset.live = mshots(btn.closest('.web-card').querySelector('.visit-btn').href, 'r' + Date.now());
       loadNext();
     });
   });
 }
-
-/* ============================================================
-   4. MODAL, LIGHTBOX, TABS
-   ============================================================ */
-let slideIndex = 0, certMode = false;
-const $ = (s, c = document) => c.querySelector(s);
-const $$ = (s, c = document) => [...c.querySelectorAll(s)];
 
 function openModal(category){
   const modal = $('#portfolioModal');
@@ -953,177 +856,58 @@ function openModal(category){
   certMode = false;
 
   if (category === 'foto'){
-    title.innerHTML = `<span>${t('modal_foto')}</span>`;
+    title.innerHTML = `<span>Galeri Foto</span>`;
     let html = '<div class="masonry">';
     portfolioData.foto.forEach((src, i) => {
       html += `<div class="masonry-item" onclick="openLightbox(${i})"><img src="${src}" loading="lazy" alt="Foto ${i+1}"></div>`;
     });
     body.innerHTML = html + '</div>';
-
   } else if (category === 'web'){
-    title.innerHTML = `<span>${t('modal_web')}</span>`;
+    title.innerHTML = `<span>Proyek Website</span>`;
     body.innerHTML = '<div class="web-grid">' + portfolioData.web.map(webCardHTML).join('') + '</div>';
     applyLangTo(body);
     initLiveThumbs(body);
-
   } else if (category === 'editing'){
-    title.innerHTML = `<span>${t('modal_edit')}</span>`;
+    title.innerHTML = `<span>Hasil Editing Saya</span>`;
     let html = `<div class="video-tabs">
         <button class="tab-btn active" onclick="switchTab(event,'instagram')"><i class="fab fa-instagram"></i> Reels</button>
         <button class="tab-btn" onclick="switchTab(event,'tiktok')"><i class="fab fa-tiktok"></i> TikTok</button>
         <button class="tab-btn" onclick="switchTab(event,'youtube')"><i class="fab fa-youtube"></i> YouTube</button>
       </div>`;
-
     html += '<div id="instagram-content" class="video-content active">';
     portfolioData.editing.instagram.forEach(link => {
       const clean = link.split('?')[0].replace(/\/$/, '');
-      html += `<div class="vid-card">
-        <iframe class="ig-iframe" src="${clean}/embed" loading="lazy" scrolling="no" allowtransparency="true" frameborder="0"></iframe>
-        <a href="${link}" target="_blank" class="visit-btn"><span data-t="watch_ig">Tonton di Instagram</span> <i class="fas fa-external-link-alt"></i></a>
-      </div>`;
+      html += `<div class="vid-card"><iframe class="ig-iframe" src="${clean}/embed" loading="lazy" scrolling="no" allowtransparency="true" frameborder="0"></iframe><a href="${link}" target="_blank" class="visit-btn"><span data-t="watch_ig">Tonton di Instagram</span> <i class="fas fa-external-link-alt"></i></a></div>`;
     });
-    html += '</div>';
-
-    html += '<div id="tiktok-content" class="video-content">';
+    html += '</div><div id="tiktok-content" class="video-content">';
     portfolioData.editing.tiktok.forEach(link => {
       const id = link.split('/video/')[1].split('?')[0];
-      html += `<div class="vid-card">
-        <iframe class="tt-iframe" src="https://www.tiktok.com/embed/v2/${id}" loading="lazy" scrolling="no" allowtransparency="true" frameborder="0"></iframe>
-        <a href="${link}" target="_blank" class="visit-btn"><span data-t="watch_tt">Tonton di TikTok</span> <i class="fas fa-external-link-alt"></i></a>
-      </div>`;
+      html += `<div class="vid-card"><iframe class="tt-iframe" src="https://www.tiktok.com/embed/v2/${id}" loading="lazy" scrolling="no" allowtransparency="true" frameborder="0"></iframe><a href="${link}" target="_blank" class="visit-btn"><span data-t="watch_tt">Tonton di TikTok</span> <i class="fas fa-external-link-alt"></i></a></div>`;
     });
-    html += '</div>';
-
-    html += '<div id="youtube-content" class="video-content">';
+    html += '</div><div id="youtube-content" class="video-content">';
     portfolioData.editing.youtube.forEach(link => {
-      const id = link.includes('youtu.be/') ? link.split('youtu.be/')[1].split('?')[0]
-               : link.split('v=')[1]?.split('&')[0] || '';
-      html += `<div class="vid-card">
-        <iframe class="yt-iframe" src="https://www.youtube.com/embed/${id}" loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen frameborder="0"></iframe>
-        <a href="${link}" target="_blank" class="visit-btn yt-btn"><span data-t="watch_yt">Tonton di YouTube</span> <i class="fas fa-external-link-alt"></i></a>
-      </div>`;
+      const id = link.includes('youtu.be/') ? link.split('youtu.be/')[1].split('?')[0] : link.split('v=')[1]?.split('&')[0] || '';
+      html += `<div class="vid-card"><iframe class="yt-iframe" src="https://www.youtube.com/embed/${id}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen frameborder="0"></iframe><a href="${link}" target="_blank" class="visit-btn yt-btn"><span data-t="watch_yt">Tonton di YouTube</span> <i class="fas fa-external-link-alt"></i></a></div>`;
     });
     html += '</div>';
-
     body.innerHTML = html;
     applyLangTo(body);
   }
 }
 
-function openCertModal(){
-  const modal = $('#portfolioModal');
-  modal.classList.add('show');
-  certMode = true;
-  $('#modal-title').innerHTML = `<span>${t('modal_cert')}</span>`;
-  let html = '<div class="masonry">';
-  portfolioData.sertifikat.forEach(src => {
-    html += `<div class="masonry-item" onclick="openSingleCert('${src}')"><img src="${src}" loading="lazy" alt="Sertifikat"></div>`;
-  });
-  $('#modal-body').innerHTML = html + '</div>';
-  $('.modal-content').scrollTop = 0;
-}
-
+function openCertModal(){ const modal = $('#portfolioModal'); modal.classList.add('show'); certMode = true; $('#modal-title').innerHTML = `<span>Galeri Sertifikat</span>`; let html = '<div class="masonry">'; portfolioData.sertifikat.forEach(src => { html += `<div class="masonry-item" onclick="openSingleCert('${src}')"><img src="${src}" loading="lazy" alt="Sertifikat"></div>`; }); $('#modal-body').innerHTML = html + '</div>'; $('.modal-content').scrollTop = 0; }
 function closeModal(){ $('#portfolioModal').classList.remove('show'); }
+function switchTab(e, platform){ $$('.video-content').forEach(c => c.classList.remove('active')); $$('.tab-btn').forEach(b => b.classList.remove('active')); const selected = document.getElementById(platform + '-content'); if (selected) selected.classList.add('active'); if (e && e.currentTarget) e.currentTarget.classList.add('active'); }
+function openLightbox(i){ slideIndex = i; certMode = false; const lb = $('#lightbox'); $('#lightbox-img').src = portfolioData.foto[i]; $('#lb-count').textContent = `${i+1} / ${portfolioData.foto.length}`; $$('.lb-nav').forEach(n => n.style.display = 'flex'); lb.classList.add('show'); requestAnimationFrame(() => lb.classList.add('active')); }
+function openSingleCert(src){ certMode = true; const lb = $('#lightbox'); $('#lightbox-img').src = src; $('#lb-count').textContent = ''; $$('.lb-nav').forEach(n => n.style.display = 'none'); lb.classList.add('show'); requestAnimationFrame(() => lb.classList.add('active')); }
+function closeLightbox(){ const lb = $('#lightbox'); lb.classList.remove('active'); setTimeout(() => lb.classList.remove('show'), 300); }
+function moveLightbox(n){ if (certMode) return; const total = portfolioData.foto.length; slideIndex = (slideIndex + n + total) % total; const img = $('#lightbox-img'); img.style.opacity = .35; setTimeout(() => { img.src = portfolioData.foto[slideIndex]; img.style.opacity = 1; $('#lb-count').textContent = `${slideIndex+1} / ${total}`; }, 180); }
 
-function switchTab(e, platform){
-  $$('.video-content').forEach(c => c.classList.remove('active'));
-  $$('.tab-btn').forEach(b => b.classList.remove('active'));
-  const target = document.getElementById(platform + '-content');
-  if (target) target.classList.add('active');
-  if (e && e.currentTarget) e.currentTarget.classList.add('active');
-}
+function scrollToContact(e){ e.preventDefault(); document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
 
-function openLightbox(i){
-  slideIndex = i; certMode = false;
-  const lb = $('#lightbox');
-  $('#lightbox-img').src = portfolioData.foto[i];
-  $('#lb-count').textContent = `${i+1} / ${portfolioData.foto.length}`;
-  $$('.lb-nav').forEach(n => n.style.display = 'flex');
-  lb.classList.add('show');
-  requestAnimationFrame(() => lb.classList.add('active'));
-}
-
-function openSingleCert(src){
-  certMode = true;
-  const lb = $('#lightbox');
-  $('#lightbox-img').src = src;
-  $('#lb-count').textContent = '';
-  $$('.lb-nav').forEach(n => n.style.display = 'none');
-  lb.classList.add('show');
-  requestAnimationFrame(() => lb.classList.add('active'));
-}
-
-function closeLightbox(){
-  const lb = $('#lightbox');
-  lb.classList.remove('active');
-  setTimeout(() => lb.classList.remove('show'), 300);
-}
-
-function moveLightbox(n){
-  if (certMode) return;
-  const total = portfolioData.foto.length;
-  slideIndex = (slideIndex + n + total) % total;
-  const img = $('#lightbox-img');
-  img.style.opacity = .35;
-  setTimeout(() => {
-    img.src = portfolioData.foto[slideIndex];
-    img.style.opacity = 1;
-    $('#lb-count').textContent = `${slideIndex+1} / ${total}`;
-  }, 180);
-}
-
-/* ============================================================
-   5. BAHASA
-   ============================================================ */
 const translations = {
-  id: {
-    nav_home:"Beranda", nav_skills:"Keahlian", nav_exp:"Pengalaman", nav_work:"Karya", nav_contact:"Kontak",
-    badge:"Open for collaboration",
-    hero_greet:"Halo, saya",
-    hero_desc:"Kreator digital yang fokus pada fotografi, videografi, dan pengembangan web — mengubah ide jadi visual yang hidup.",
-    btn_work:"Lihat Karya", btn_contact:"Hubungi Saya",
-    chip1:"Fotografi", chip2:"Videografi",
-    st_photo:"Foto", st_video:"Video Diedit", st_acc:"Akun Dikelola", st_cert:"Sertifikat",
-    tag_skills:"Keahlian", skills_title:"Keahlian Saya", skills_sub:"Tools & kemampuan yang saya pakai setiap hari.",
-    skill1:"Fotografer", desc1:"Mengabadikan momen terbaik dengan komposisi yang tepat.",
-    skill2:"Videografer", desc2:"Menciptakan cerita sinematik lewat video.",
-    skill3:"Web Desainer", desc3:"Membangun website modern dan responsif.",
-    skill4:"Editing", desc4:"Sentuhan akhir yang bikin visual makin hidup.",
-    tag_exp:"Pengalaman", exp_title:"Akun Yang Pernah Saya Kelola",
-    tag_cert:"Sertifikat", cert_title:"Sertifikat Saya", cert_sub:"Dokumentasi pencapaian & pelatihan yang pernah saya ikuti.",
-    btn_cert:"Lihat Sertifikat",
-    tag_work:"Portofolio", portfolio_title:"Hasil Karya Saya", portfolio_sub:"Klik salah satu kategori untuk melihat detailnya.",
-    gal_foto:"Foto", gal_web:"Website", gal_edit:"Editing",
-    modal_foto:"Galeri Foto", modal_web:"Proyek Website", modal_edit:"Hasil Editing Saya", modal_cert:"Galeri Sertifikat",
-    visit:"Kunjungi Website", watch_ig:"Tonton di Instagram", watch_tt:"Tonton di TikTok", watch_yt:"Tonton di YouTube",
-    rights:"All Rights Reserved.",
-    roles:["Fotografer","Videografer","Web Desainer","Editor Video"]
-  },
-  en: {
-    nav_home:"Home", nav_skills:"Skills", nav_exp:"Experience", nav_work:"Works", nav_contact:"Contact",
-    badge:"Open for collaboration",
-    hero_greet:"Hi, I'm",
-    hero_desc:"A digital creator focused on photography, videography and web development — turning ideas into living visuals.",
-    btn_work:"View Works", btn_contact:"Contact Me",
-    chip1:"Photography", chip2:"Videography",
-    st_photo:"Photos", st_video:"Videos Edited", st_acc:"Accounts Managed", st_cert:"Certificates",
-    tag_skills:"Skills", skills_title:"My Expertise", skills_sub:"Tools & abilities I use every day.",
-    skill1:"Photographer", desc1:"Capturing the best moments with perfect composition.",
-    skill2:"Videographer", desc2:"Creating cinematic stories through video.",
-    skill3:"Web Designer", desc3:"Building modern and responsive websites.",
-    skill4:"Editing", desc4:"The magical finishing touch on visuals.",
-    tag_exp:"Experience", exp_title:"Accounts I Have Managed",
-    tag_cert:"Certificates", cert_title:"My Certificates", cert_sub:"A record of achievements and training I have joined.",
-    btn_cert:"View Certificates",
-    tag_work:"Portfolio", portfolio_title:"My Creative Works", portfolio_sub:"Click a category to see the details.",
-    gal_foto:"Photo", gal_web:"Website", gal_edit:"Editing",
-    modal_foto:"Photo Gallery", modal_web:"Website Projects", modal_edit:"My Editing Results", modal_cert:"Certificate Gallery",
-    visit:"Visit Website", watch_ig:"Watch on Instagram", watch_tt:"Watch on TikTok", watch_yt:"Watch on YouTube",
-    rights:"All Rights Reserved.",
-    roles:["Photographer","Videographer","Web Designer","Video Editor"]
-  }
+  id: { nav_home:"Beranda", nav_skills:"Keahlian", nav_exp:"Pengalaman", nav_work:"Karya", nav_contact:"Kontak", badge:"Open for collaboration", hero_greet:"Halo, saya", hero_desc:"Kreator digital yang fokus pada fotografi, videografi, dan pengembangan web — mengubah ide jadi visual yang hidup.", btn_work:"Lihat Karya", btn_contact:"Hubungi Saya", chip1:"Fotografi", chip2:"Videografi", st_photo:"Foto", st_video:"Video Diedit", st_acc:"Akun Dikelola", st_cert:"Sertifikat", tag_skills:"Keahlian", skills_title:"Keahlian Saya", skills_sub:"Tools & kemampuan yang saya pakai setiap hari.", skill1:"Fotografer", desc1:"Mengabadikan momen terbaik dengan komposisi yang tepat.", skill2:"Videografer", desc2:"Menciptakan cerita sinematik lewat video.", skill3:"Web Desainer", desc3:"Membangun website modern dan responsif.", skill4:"Editing", desc4:"Sentuhan akhir yang bikin visual makin hidup.", tag_exp:"Pengalaman", exp_title:"Akun Yang Pernah Saya Kelola", tag_cert:"Sertifikat", cert_title:"Sertifikat Saya", cert_sub:"Dokumentasi pencapaian & pelatihan yang pernah saya ikuti.", btn_cert:"Lihat Sertifikat", tag_work:"Portofolio", portfolio_title:"Hasil Karya Saya", portfolio_sub:"Klik salah satu kategori untuk melihat detailnya.", gal_foto:"Foto", gal_web:"Website", gal_edit:"Editing", visit:"Kunjungi Website", watch_ig:"Tonton di Instagram", watch_tt:"Tonton di TikTok", watch_yt:"Tonton di YouTube", rights:"All Rights Reserved.", roles:["Fotografer","Videografer","Web Desainer","Editor Video"] },
+  en: { nav_home:"Home", nav_skills:"Skills", nav_exp:"Experience", nav_work:"Works", nav_contact:"Contact", badge:"Open for collaboration", hero_greet:"Hi, I'm", hero_desc:"A digital creator focused on photography, videography and web development — turning ideas into living visuals.", btn_work:"View Works", btn_contact:"Contact Me", chip1:"Photography", chip2:"Videography", st_photo:"Photos", st_video:"Videos Edited", st_acc:"Accounts Managed", st_cert:"Certificates", tag_skills:"Skills", skills_title:"My Expertise", skills_sub:"Tools & abilities I use every day.", skill1:"Photographer", desc1:"Capturing the best moments with perfect composition.", skill2:"Videographer", desc2:"Creating cinematic stories through video.", skill3:"Web Designer", desc3:"Building modern and responsive websites.", skill4:"Editing", desc4:"The magical finishing touch on visuals.", tag_exp:"Experience", exp_title:"Accounts I Have Managed", tag_cert:"Certificates", cert_title:"My Certificates", cert_sub:"A record of achievements and training I have joined.", btn_cert:"View Certificates", tag_work:"Portfolio", portfolio_title:"My Creative Works", portfolio_sub:"Click a category to see the details.", gal_foto:"Photo", gal_web:"Website", gal_edit:"Editing", visit:"Visit Website", watch_ig:"Watch on Instagram", watch_tt:"Watch on TikTok", watch_yt:"Watch on YouTube", rights:"All Rights Reserved.", roles:["Photographer","Videographer","Web Designer","Video Editor"] }
 };
 
 let currentLang = 'id';
@@ -1134,22 +918,11 @@ function applyLangTo(root = document){
     const k = el.dataset.i18n;
     if (k in translations[currentLang]) el.textContent = translations[currentLang][k];
   });
-  root.querySelectorAll('[data-t]').forEach(el => {
-    el.textContent = t(el.dataset.t);
-  });
+  root.querySelectorAll('[data-t]').forEach(el => { el.textContent = t(el.dataset.t); });
 }
 
-function toggleLanguage(){
-  currentLang = currentLang === 'id' ? 'en' : 'id';
-  $('#lang-btn').textContent = currentLang === 'id' ? 'EN' : 'ID';
-  document.documentElement.lang = currentLang;
-  applyLangTo();
-  startTyping();
-}
+function toggleLanguage(){ currentLang = currentLang === 'id' ? 'en' : 'id'; $('#lang-btn').textContent = currentLang === 'id' ? 'EN' : 'ID'; document.documentElement.lang = currentLang; applyLangTo(); startTyping(); }
 
-/* ============================================================
-   6. TYPEWRITER
-   ============================================================ */
 let typeTimer = null;
 function startTyping(){
   clearTimeout(typeTimer);
@@ -1168,9 +941,6 @@ function startTyping(){
   tick();
 }
 
-/* ============================================================
-   7. REVEAL ON SCROLL + COUNTER + SKILL BAR
-   ============================================================ */
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, idx) => {
     if (!entry.isIntersecting) return;
@@ -1186,7 +956,6 @@ document.querySelectorAll('[data-reveal]').forEach((el, i) => {
   revealObserver.observe(el);
 });
 
-// counter
 const counterObserver = new IntersectionObserver(entries => {
   entries.forEach(en => {
     if (!en.isIntersecting) return;
@@ -1206,7 +975,6 @@ const counterObserver = new IntersectionObserver(entries => {
 }, { threshold: .5 });
 document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
-// skill bar
 const barObserver = new IntersectionObserver(entries => {
   entries.forEach(en => {
     if (!en.isIntersecting) return;
@@ -1218,16 +986,12 @@ const barObserver = new IntersectionObserver(entries => {
 }, { threshold: .35 });
 document.querySelectorAll('.skill-card').forEach(c => barObserver.observe(c));
 
-// skill card tap (mobile)
 document.querySelectorAll('.skill-card').forEach(card => {
   card.addEventListener('click', () => {
     if (window.matchMedia('(hover:none)').matches) card.classList.toggle('flipped');
   });
 });
 
-/* ============================================================
-   8. SCROLL: progress, navbar, FAB, active link
-   ============================================================ */
 const sections = $$('section[id]');
 const navLinks = $$('.nav-links a');
 const navbar = $('#navbar');
@@ -1238,18 +1002,13 @@ window.addEventListener('scroll', () => {
   const top = window.scrollY;
   const h = document.documentElement.scrollHeight - window.innerHeight;
   scrollBar.style.width = (top / h * 100) + '%';
-
   navbar.classList.toggle('shrink', top > 40);
   fab.classList.toggle('show', top > 500);
-
   let current = '';
   sections.forEach(s => { if (top >= s.offsetTop - 140) current = s.id; });
   navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
 }, { passive: true });
 
-/* ============================================================
-   9. TILT 3D + CURSOR GLOW + RIPPLE
-   ============================================================ */
 const frame = $('#photoFrame');
 if (frame && window.matchMedia('(hover:hover)').matches){
   frame.addEventListener('mousemove', e => {
@@ -1285,15 +1044,13 @@ document.addEventListener('click', e => {
   setTimeout(() => span.remove(), 650);
 });
 
-/* ============================================================
-   10. TEMA
-   ============================================================ */
 function toggleTheme(){
   document.body.classList.toggle('dark');
   const dark = document.body.classList.contains('dark');
   $('#theme-btn').innerHTML = dark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
   try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e){}
 }
+
 try {
   if (localStorage.getItem('theme') === 'dark'){
     document.body.classList.add('dark');
@@ -1301,13 +1058,11 @@ try {
   }
 } catch(e){}
 
-/* ============================================================
-   11. GLOBAL EVENTS
-   ============================================================ */
 window.addEventListener('click', e => {
   if (e.target.id === 'portfolioModal') closeModal();
   if (e.target.id === 'lightbox') closeLightbox();
 });
+
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape'){ closeModal(); closeLightbox(); }
   if ($('#lightbox').classList.contains('show')){
@@ -1319,19 +1074,14 @@ document.addEventListener('keydown', e => {
   if (e.ctrlKey && ['U','S'].includes(e.key.toUpperCase())) return false;
 });
 
-/* ============================================================
-   12. INIT
-   ============================================================ */
 window.addEventListener('load', () => {
   setTimeout(() => $('#preloader').classList.add('hide'), 500);
 });
-// fallback kalau load lambat
 setTimeout(() => $('#preloader').classList.add('hide'), 2600);
 
 applyLangTo();
 startTyping();
 
-// refresh thumbnail otomatis tiap 30 menit (kalau modal website sedang terbuka)
 setInterval(() => {
   const modal = $('#portfolioModal');
   if (!modal.classList.contains('show')) return;
